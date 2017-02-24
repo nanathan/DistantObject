@@ -65,7 +65,7 @@ namespace DistantObject
             sizeInDegrees = Math.Acos(Math.Sqrt(distanceFromCamera * distanceFromCamera - bodyRadiusSquared) / distanceFromCamera) * Mathf.Rad2Deg;
 
             // Disable the mesh if the scaledRenderer is enabled and visible.
-            bodyMesh.SetActive(!(scaledRenderer.enabled && scaledRenderer.isVisible));
+            bodyMesh.SetActive(!(scaledRenderer.enabled && scaledRenderer.isVisible) || sizeInDegrees < 0.2);
         }
 
         ~BodyFlare()
